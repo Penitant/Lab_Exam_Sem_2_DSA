@@ -178,7 +178,6 @@ void process_file(const char* input_file, HashTable* table) {
         if (is_separator(c)) {
             if (word_index > 0) {
                 word[word_index] = '\0';
-                to_lowercase(word);
                 robin_hood_insert(table, word, line_number);
                 word_index = 0;
             }

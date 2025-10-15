@@ -33,9 +33,9 @@ class Queue:
             cur = cur.n
         return out
 
-    @staticmethod
-    def from_list(items):
-        q = Queue()
+    @classmethod
+    def from_list(cls, items):
+        q = cls()
         for x in items:
             q.enqueue(x)
         return q
@@ -127,7 +127,7 @@ def load_bst_json(path):
 
 def tokenize_line(s):
     parts = re.split(r"[ \t\n\.,:;]+", s)
-    return [p.lower() for p in parts if p]
+    return [p for p in parts if p]
 
 
 def build_index(bst, input_path):
